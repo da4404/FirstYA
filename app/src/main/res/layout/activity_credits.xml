@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="108dp"
         android:layout_height="60dp"
-        android:text="darya is makca"
+        android:text="darya is malka"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/sum"
         app:layout_constraintEnd_toEndOf="parent"
