@@ -24,17 +24,20 @@ public class MainActivity extends AppCompatActivity
 
         screenEditText = findViewById(R.id.editTextNumber);
     }
-    public void writeToEditText(View view)
-    {
-        String op = ((Button) view).getText().toString();
-        screenEditText.setText(screenEditText.getText().toString() + op);
-        screenEditText.setSelection(screenEditText.getText().length());
+    public void writeToEditText(View view) {
+        String a = screenEditText.getText().toString();
+        char last = a.charAt(a.length() - 1);
+        if (!(last == '+' || last == '-' || last == '*' || last == '/')) {
+            String op = ((Button) view).getText().toString();
+            screenEditText.setText(screenEditText.getText().toString() + op);
+            screenEditText.setSelection(screenEditText.getText().length());
 
+        }
     }
     public void equal(View view)
     {
         String text = screenEditText.getText().toString();
-
+        sum = 0;
         char oprishin = '+';
         String currentNumber = "";
 
@@ -48,13 +51,17 @@ public class MainActivity extends AppCompatActivity
                 switch (oprishin)
                 {
                     case '+':
-                        sum += num; break;
+                        sum += num;
+                        break;
                     case '-':
-                        sum -= num; break;
+                        sum -= num;
+                        break;
                     case '*':
-                        sum *= num; break;
+                        sum *= num;
+                        break;
                     case '/':
-                        sum /= num; break;
+                        sum /= num;
+                        break;
                 }
 
                 oprishin = c;
@@ -74,18 +81,23 @@ public class MainActivity extends AppCompatActivity
             switch (oprishin)
             {
                 case '+':
-                    sum += num; break;
+                    sum += num;
+                    break;
                 case '-':
-                    sum -= num; break;
+                    sum -= num;
+                    break;
                 case '*':
-                    sum *= num; break;
+                    sum *= num;
+                    break;
                 case '/':
-                    sum /= num; break;
+                    sum /= num;
+                    break;
             }
         }
+
         screenEditText.setText(String.valueOf(sum));
         screenEditText.setSelection(screenEditText.getText().length());
-        }
+    }
 
     public void clear(View view)
     {
